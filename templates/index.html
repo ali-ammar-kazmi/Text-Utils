@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title%} Text-Utils {% endblock %}
+{% block body %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Welcome to TextUtils!</strong> You can do anything with your text here!
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div><br>
+	<form action="about" method="post">
+		{% csrf_token %}
+		<div class="container">
+			<label for="Textarea1">
+				<h3>Enter your text here : </h3>
+			</label>
+			<textarea class="form-control" name='text' id="Textarea1" rows="9"></textarea><br>
+			<div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="UpperCase" role="switch" id="Switch1">
+				<label class="form-check-label" for="Switch1">Convert UpperCase</label>
+			  </div>
+			  <div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="LowerCase" role="switch" id="Switch2">
+				<label class="form-check-label" for="Switch2">Convert LowerCase</label>
+			  </div>
+			  <div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="TitleCase" role="switch" id="Switch2">
+				<label class="form-check-label" for="Switch2">Convert TitleCase</label>
+			  </div>
+			  <div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="SwapCase" role="switch" id="Switch2">
+				<label class="form-check-label" for="Switch2">Convert Case</label>
+			  </div>
+			  <div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="WhiteSpace" role="switch" id="Switch3">
+				<label class="form-check-label" for="Switch3">Remove Extra WhiteSpace</label>
+			  </div>
+			  <div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" name="Punctuations" role="switch" id="Switch4">
+				<label class="form-check-label" for="Switch4">Remove Punctuations</label>
+			  </div>
+			<button type="submit" class="btn btn-success">Analyse Text</button>
+		</div>
+	</form>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+		crossorigin="anonymous"></script>
+{% endblock %}

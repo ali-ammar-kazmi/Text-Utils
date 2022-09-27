@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title%} Text-Info {% endblock %}
+{% block body %}
+<div class="container"><br>
+	<h1>The Analyzed Text is : <span class="badge bg-secondary">Word Count : {{wordCount}} & Char Count : {{charCount}}</span></h1><br>
+	<hr>
+	<h4>
+		<pre>{{ analyzed_text }}</pre>
+	</h4>
+	<hr>
+</div>
+{% endblock %}
