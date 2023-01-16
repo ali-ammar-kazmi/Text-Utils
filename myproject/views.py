@@ -1,10 +1,8 @@
 from django.shortcuts import render
+import pyperclip
 import string
 
-def index(request):
-	return render(request,'index.html')
-
-def about(request):
+def home(request):
 	text = request.POST.get('text','')
 	upper = request.POST.get('UpperCase','off')
 	lower = request.POST.get('LowerCase','off')
@@ -12,6 +10,9 @@ def about(request):
 	switch = request.POST.get('SwapCase','off')
 	space = request.POST.get('WhiteSpace','off')
 	punctuation = request.POST.get('Punctuations','off')
+	analyzed=''
+	wordCount=0
+	charCount=0
 	if(text != ''):		
 		if (upper == 'on'):
 			text=text.upper()
@@ -40,4 +41,10 @@ def about(request):
 		charCount=len(analyzed)
 		wordCount=len(analyzed.strip().split())
 	params={'analyzed_text':analyzed, 'wordCount':wordCount, 'charCount':charCount}
-	return render(request,'about.html',params)
+	pyperclip.copy(analyzed)
+	return render(request,'home.html',params)
+
+def note(request):
+	analyzed=pyperclip.paste()
+	params={'analyzed_text':analyzed}
+	return render(request, 'note.html',params)

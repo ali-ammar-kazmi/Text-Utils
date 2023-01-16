@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%} Text-Info {% endblock %}
+{% block body %}
+<div class="container"><br>
+	<div class="container p-2 border my-4">
+		<form>
+			<div class="card my-2">
+				<input type="text" class="card-body" id="txt" value="{{ analyzed_text }}"></input>
+			</div>
+			<button type="button" class="btn btn-primary" id="addbtn" onclick="add()">Add Note</button>
+		</form>
+		<h4>Your Notes :</h4>
+		<div class="row container-fluid" id="room"></div>
+	</div>
+</div>
+{% endblock %}
